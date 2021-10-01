@@ -1,22 +1,42 @@
-#include<stdio.h>
-int check()
+#include<iostream>
+#include<conio.h>
+
+using namespace std;
+
+void main()
 {
-	int a ;
-	printf("Enter a number:");
-	scanf("%d",&a);
-	if(a%2==0)
-	 return 2;
-	 else 
-	 return 0;
+       int a[10], i, largest = 0, second_largest = 0, pos1, pos2;
+       int n;
+       cout << "Enter Number of elements :";
+       cin>>n;
+       for (i = 0; i<n; ++i)
+       {
+              cout << "n Enter " << (i + 1) << "th Element :";
+              cin >> a[i];
+       }
+       //Finding Largest
+       for (i = 0; i<10; ++i)
+       {
+              if (a[i]>largest)
+              {
+                     largest = a[i];
+                     pos1 = i;
+              }
+       }
+       //finding second largset
+       for (i = 0; i<10; ++i)
+       {
+              if (a[i]>second_largest)
+              {
+                     if (a[i] == largest)
+                           continue;              //Ignoring largest in order to get second largest
+                     second_largest = a[i];
+                     pos2 = i;
+              }
+       }
+       cout << "nn Largest Number :" << largest << " at position " << (pos1 + 1);
+       cout << "nn Second Largest Number :"<< second_largest << " at position " << (pos2 + 1);
+
+       getch();
+       return;
 }
- void main()
- {
- 	int b =check();
- 	// printf("%d\n",b);  
-// We don't need this printf actually because we are printing the number itself so printing 2 is just extra code here
- 	if(b==2)
- 	printf("Even");
- 	else 
- 	printf("odd");
- 	
- }
